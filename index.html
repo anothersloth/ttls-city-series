@@ -357,6 +357,104 @@
       animation: scrollPulse 2s ease-in-out infinite;
     }
 
+    .section { scroll-margin-top: 96px; }
+
+    /* === AGENDA === */
+    .agenda-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .agenda-chapter {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 28px 24px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+    }
+    .agenda-chapter::after {
+      content: "";
+      position: absolute;
+      inset: auto -40% -50% auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(254,44,85,0.16) 0%, rgba(254,44,85,0) 68%);
+    }
+    .agenda-index {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .agenda-name {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 12px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+    .agenda-line {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .agenda-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .agenda-item {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 12px 12px 12px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8, 10, 16, 0.35);
+      transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+    .agenda-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,183,102,0.34);
+      background: rgba(12, 14, 22, 0.72);
+    }
+    .agenda-num {
+      color: rgba(255,255,255,0.42);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      padding-top: 3px;
+    }
+    .agenda-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .agenda-item p {
+      margin: 0;
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
     /* === WHY NOW === */
     .why-now .section-inner {
       display: grid;
@@ -510,16 +608,11 @@
       overflow: hidden;
       border-radius: clamp(28px, 4vw, 42px);
       border: 1px solid rgba(255,255,255,0.12);
-      background: url("./images/bear-poster.jpg") center center / cover no-repeat;
+      background: url("./images/bear-poster.png") center center / cover no-repeat;
       box-shadow: var(--shadow-xl);
     }
     .poster-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(4,6,8,0.06) 0%, rgba(4,6,8,0.18) 42%, rgba(4,6,8,0.8) 100%),
-        linear-gradient(90deg, rgba(4,6,8,0.22) 0%, rgba(4,6,8,0.0) 50%, rgba(4,6,8,0.14) 100%);
+      content: none;
     }
     .poster-content {
       position: relative;
@@ -643,6 +736,25 @@
     }
 
     /* === MISSION MAP === */
+    .video-shell {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #000;
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .mission-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -687,13 +799,23 @@
     .mission-card {
       position: absolute;
       z-index: 1;
-      width: min(280px, calc(100% - 56px));
-      padding: 18px 18px 20px;
+      width: min(300px, calc(100% - 56px));
+      padding: 10px 10px 16px;
       border-radius: 24px;
       background: rgba(8,10,16,0.9);
       border: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 18px 38px rgba(0,0,0,0.24);
       transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .mission-card img {
+      width: 100%;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 12px;
+    }
+    .mission-card .mission-copy {
+      padding: 0 8px;
     }
     .mission-card:hover {
       transform: translateY(-10px) scale(1.02);
@@ -720,10 +842,10 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .mission-card.card-1 { left: 34px; top: 78px; }
-    .mission-card.card-2 { right: 34px; top: 202px; }
-    .mission-card.card-3 { left: 84px; top: 370px; }
-    .mission-card.card-4 { right: 52px; bottom: 74px; }
+    .mission-card.card-1 { left: 34px; top: 64px; }
+    .mission-card.card-2 { right: 34px; top: 168px; }
+    .mission-card.card-3 { left: 72px; top: 348px; }
+    .mission-card.card-4 { right: 44px; bottom: 48px; }
     .map-badge {
       position: absolute;
       top: 24px;
@@ -739,143 +861,10 @@
     }
     .phone-card {
       min-height: 660px;
-      padding: 24px;
+      padding: 18px;
       display: grid;
       align-items: center;
-      justify-items: center;
     }
-    .phone-frame {
-      position: relative;
-      width: min(320px, 100%);
-      aspect-ratio: 9 / 16;
-      border-radius: 40px;
-      border: 2px solid rgba(255,255,255,0.18);
-      background: linear-gradient(180deg, rgba(8,10,16,0.98), rgba(12,14,22,0.98));
-      box-shadow: 0 30px 60px rgba(0,0,0,0.34);
-      overflow: hidden;
-    }
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 42%;
-      height: 22px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-    }
-    .phone-screen {
-      position: absolute;
-      inset: 18px;
-      border-radius: 30px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,183,102,0.22), transparent 24%),
-        radial-gradient(circle at 68% 22%, rgba(254,44,85,0.24), transparent 26%),
-        linear-gradient(180deg, #111421 0%, #090a0f 100%);
-    }
-    .phone-topline {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 16px 8px;
-      color: rgba(255,255,255,0.74);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .phone-video {
-      position: absolute;
-      inset: 56px 0 120px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 24px;
-    }
-    .phone-video::before {
-      content: "";
-      position: absolute;
-      inset: 32px 22px 28px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    }
-    .phone-video .play {
-      position: relative;
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(254,44,85,0.92), rgba(255,183,102,0.92));
-      box-shadow: 0 18px 46px rgba(254,44,85,0.34);
-    }
-    .phone-video .play::before {
-      content: "";
-      position: absolute;
-      left: 35px;
-      top: 26px;
-      border-left: 24px solid white;
-      border-top: 16px solid transparent;
-      border-bottom: 16px solid transparent;
-    }
-    .phone-video strong,
-    .phone-video p {
-      position: relative;
-      z-index: 1;
-    }
-    .phone-video strong {
-      display: block;
-      margin-top: 22px;
-      font-size: 28px;
-      line-height: 1.08;
-    }
-    .phone-video p {
-      max-width: 220px;
-      margin: 10px 0 0;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.55;
-    }
-    .phone-actions {
-      position: absolute;
-      right: 18px;
-      bottom: 136px;
-      display: grid;
-      gap: 16px;
-      z-index: 1;
-    }
-    .phone-action {
-      display: grid;
-      justify-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,0.8);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .phone-action span {
-      text-shadow: 0 8px 18px rgba(0,0,0,0.3);
-    }
-    .phone-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-    }
-    .phone-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      display: grid;
-      gap: 10px;
-      z-index: 1;
-    }
-    .phone-caption strong { font-size: 17px; }
-    .phone-caption span { color: rgba(255,255,255,0.72); line-height: 1.45; }
 
     /* === COLLECT THE CITIES === */
     .collect-grid {
@@ -980,6 +969,121 @@
       line-height: 1.55;
     }
 
+    /* === PARTNER AUDIENCE PAGES === */
+    .partner-section .title-wrap {
+      max-width: none;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .partner-section .title-wrap .section-subtitle {
+      text-align: right;
+      max-width: 360px;
+    }
+    .partner-exchange {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .partner-column {
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+    }
+    .partner-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+    }
+    .partner-label span:last-child {
+      color: var(--muted-soft);
+      letter-spacing: 0.08em;
+    }
+    .partner-separator {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+    .partner-separator::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(254,44,85,0.55), rgba(255,183,102,0.4), transparent);
+    }
+    .partner-x {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7, 8, 12, 0.78);
+      color: var(--pink);
+      font-size: 22px;
+      box-shadow: var(--shadow-lg);
+    }
+    .partner-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .partner-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,183,102,0.34);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.26);
+    }
+    .partner-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -55% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(254,44,85,0.16) 0%, rgba(254,44,85,0) 68%);
+    }
+    .partner-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 8px;
+      font-size: clamp(18px, 1.6vw, 24px);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+    .partner-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .partner-tagline {
+      margin-top: 28px;
+      padding: 18px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(90deg, rgba(254,44,85,0.12), rgba(255,255,255,0.04), rgba(37,244,238,0.08));
+      text-align: center;
+      font-size: clamp(18px, 2vw, 24px);
+      letter-spacing: -0.03em;
+    }
+
     /* === FOOTER === */
     .footer-note {
       width: var(--content);
@@ -1013,8 +1117,27 @@
       .collect-grid,
       .kit-grid,
       .stats-grid,
-      .journey-grid {
+      .journey-grid,
+      .partner-exchange,
+      .agenda-grid {
         grid-template-columns: 1fr;
+      }
+      .partner-section .title-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .partner-section .title-wrap .section-subtitle { text-align: left; }
+      .partner-separator {
+        min-height: 56px;
+      }
+      .partner-separator::before {
+        top: 50%;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(254,44,85,0.55), transparent);
       }
       .hero-card {
         position: relative;
@@ -1061,7 +1184,7 @@
       }
       .mission-map { padding: 20px; }
       .route-svg { display: none; }
-      .phone-frame { width: min(100%, 360px); }
+      .video-shell { width: min(100%, 360px); margin: 0 auto; }
       .poster-content { padding: 0 22px 28px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1081,7 +1204,7 @@
         <img src="./images/logo.png" alt="TikTok GO" />
         <span>City Series</span>
       </a>
-      <div class="nav-copy">Built for US OTA merchant partners</div>
+      <div class="nav-copy">Built for US travel partners</div>
     </header>
 
     <main>
@@ -1104,7 +1227,7 @@
           <div class="hero-grid" id="heroGrid">
             <div class="hero-copy">
               <div class="section-kicker reveal">TikTok GO • LA launch edition</div>
-              <h1 class="hero-title reveal delay-1">TikTok Go City Series</h1>
+              <h1 class="hero-title reveal delay-1">TikTok Go<br />City Series</h1>
               <p class="hero-subtitle reveal delay-2">Meet your next customers where their journey begins.</p>
               <div class="hero-chips reveal delay-3">
                 <div class="hero-chip">Gen Z energy</div>
@@ -1118,7 +1241,96 @@
               <p>The City Series turns creator trips into a visible, collectible, and bookable travel format that OTA partners can plug into from day one.</p>
             </aside>
           </div>
-          <a class="scroll-cue reveal delay-5" href="#why-now" aria-label="Scroll to Why Now section"><span></span><span>Scroll to explore</span></a>
+          <a class="scroll-cue reveal delay-5" href="#agenda" aria-label="Scroll to Agenda section"><span></span><span>Scroll to explore</span></a>
+        </div>
+      </section>
+
+      <section class="section agenda-section" id="agenda">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div class="section-kicker">Agenda</div>
+            <h2 class="section-title">Why. What. How.</h2>
+            <p class="section-subtitle">Three chapters. One City Series.</p>
+          </div>
+          <div class="agenda-grid">
+            <article class="agenda-chapter reveal delay-1">
+              <div class="agenda-index">Why — The Opportunity</div>
+              <h3 class="agenda-name">Travelers don't search. They scroll.</h3>
+              <p class="agenda-line">Consumer behavior has already changed. TikTok is the new entry point for travel discovery.</p>
+              <div class="agenda-list">
+                <a class="agenda-item" href="#why-now">
+                  <span class="agenda-num">02</span>
+                  <span>
+                    <strong>The Shift</strong>
+                    <p>The data behind the new travel journey — from the feed to the booking.</p>
+                  </span>
+                </a>
+              </div>
+            </article>
+            <article class="agenda-chapter reveal delay-2">
+              <div class="agenda-index">What — The City Series</div>
+              <h3 class="agenda-name">Creators. Missions. Cities.</h3>
+              <p class="agenda-line">A campaign built around creators, missions, and the cities they explore.</p>
+              <div class="agenda-list">
+                <a class="agenda-item" href="#bear-hero">
+                  <span class="agenda-num">03</span>
+                  <span>
+                    <strong>TikTok Go Bear</strong>
+                    <p>A physical IP that becomes the creator's travel identity.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#travel-kit">
+                  <span class="agenda-num">04</span>
+                  <span>
+                    <strong>Travel Kit</strong>
+                    <p>Bear + Pin + the mission mechanic that makes every trip bookable.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#mission-map">
+                  <span class="agenda-num">05</span>
+                  <span>
+                    <strong>City Mission LA</strong>
+                    <p>How one city actually runs — route, spots, and on-the-ground execution.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#collect-cities">
+                  <span class="agenda-num">06</span>
+                  <span>
+                    <strong>City Collection</strong>
+                    <p>The series logic: complete a city, unlock the next, grow the wardrobe.</p>
+                  </span>
+                </a>
+              </div>
+            </article>
+            <article class="agenda-chapter reveal delay-3">
+              <div class="agenda-index">How — Join the Series</div>
+              <h3 class="agenda-name">Three kinds of partners.</h3>
+              <p class="agenda-line">The City Series runs on OTA partners, DMOs, and creators — each with a clear exchange.</p>
+              <div class="agenda-list">
+                <a class="agenda-item" href="#ota-partners">
+                  <span class="agenda-num">07</span>
+                  <span>
+                    <strong>OTA Partners</strong>
+                    <p>Inventory and access in. Demand and distribution out.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#dmo-partners">
+                  <span class="agenda-num">08</span>
+                  <span>
+                    <strong>DMO Partners</strong>
+                    <p>City resources in. Spotlight, traffic, and creator content out.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#for-creators">
+                  <span class="agenda-num">09</span>
+                  <span>
+                    <strong>Creators</strong>
+                    <p>Content and conversion in. Gear, missions, and the next city out.</p>
+                  </span>
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -1181,9 +1393,7 @@
 
       <section class="section poster-section" id="bear-hero">
         <div class="section-inner poster-shell">
-          <div class="poster-content">
-            <h2 class="reveal">Let the TikTok Go Bear become your travel buddy.</h2>
-          </div>
+          <div class="poster-content" aria-hidden="true"></div>
         </div>
       </section>
 
@@ -1203,7 +1413,7 @@
                   <h3 class="kit-title">TikTok Go Bear</h3>
                 </div>
                 <div class="asset-wrap">
-                  <img src="./images/bear-product.webp" alt="TikTok Go Bear plush from the travel kit" />
+                  <img src="./images/bear-solo.jpg" alt="TikTok Go Bear plush from the travel kit" />
                 </div>
                 <p>Your travel companion. Wear it, carry it, bring it everywhere.</p>
               </article>
@@ -1213,7 +1423,7 @@
                   <h3 class="kit-title">“Click Here” Pin</h3>
                 </div>
                 <div class="asset-wrap">
-                  <img src="./images/pin-product.webp" alt="TikTok Go Click Here pin plush and strap" />
+                  <img src="./images/pin-solo.jpg" alt="TikTok Go Click Here pin plush and strap" />
                 </div>
                 <p>Every time viewers see the Pin, they know: tap to book on TikTok Go.</p>
               </article>
@@ -1249,45 +1459,48 @@
                 <circle class="route-stop" cx="742" cy="571" r="14" fill="#25F4EE" />
               </svg>
               <article class="mission-card card-1 reveal delay-1">
-                <h3>📍 Disneyland</h3>
-                <p>The Magic Kingdom mission</p>
-                <small>🧸 Bear spotted here</small>
+                <img src="./images/mission-disneyland.jpg" alt="Disneyland castle at dusk" />
+                <div class="mission-copy">
+                  <h3>📍 Disneyland</h3>
+                  <p>The Magic Kingdom mission</p>
+                  <small>🧸 Bear spotted here</small>
+                </div>
               </article>
               <article class="mission-card card-2 reveal delay-2">
-                <h3>📍 Universal Studios</h3>
-                <p>The ultimate movie world mission</p>
-                <small>🧸 Bear spotted here</small>
+                <img src="./images/mission-universal.jpg" alt="Universal Studios cinematic backlot at dusk" />
+                <div class="mission-copy">
+                  <h3>📍 Universal Studios</h3>
+                  <p>The ultimate movie world mission</p>
+                  <small>🧸 Bear spotted here</small>
+                </div>
               </article>
               <article class="mission-card card-3 reveal delay-3">
-                <h3>📍 Aquarium of the Pacific</h3>
-                <p>An ocean adventure mission</p>
-                <small>🧸 Bear spotted here</small>
+                <img src="./images/mission-aquarium.jpg" alt="Aquarium of the Pacific at night" />
+                <div class="mission-copy">
+                  <h3>📍 Aquarium of the Pacific</h3>
+                  <p>An ocean adventure mission</p>
+                  <small>🧸 Bear spotted here</small>
+                </div>
               </article>
               <article class="mission-card card-4 reveal delay-4">
-                <h3>📍 LACMA</h3>
-                <p>An art in the city mission</p>
-                <small>🧸 Bear spotted here</small>
+                <img src="./images/mission-lacma.jpg" alt="LACMA plaza lights at dusk" />
+                <div class="mission-copy">
+                  <h3>📍 LACMA</h3>
+                  <p>An art in the city mission</p>
+                  <small>🧸 Bear spotted here</small>
+                </div>
               </article>
             </div>
-
             <aside class="phone-card reveal delay-2">
-              <div class="phone-frame" aria-label="Creator video coming soon placeholder">
-                <div class="phone-screen">
-                  <div class="phone-topline"><span>TikTok</span><span>For You</span></div>
-                  <div class="phone-video">
-                    <div class="play"></div>
-                    <strong>Creator video coming soon</strong>
-                    <p>TikTok-style route storytelling will live here once the first LA mission is ready to publish.</p>
-                  </div>
-                  <div class="phone-actions">
-                    <div class="phone-action"><div class="phone-icon">❤</div><span>128K</span></div>
-                    <div class="phone-action"><div class="phone-icon">💬</div><span>3.8K</span></div>
-                    <div class="phone-action"><div class="phone-icon">↗</div><span>12K</span></div>
-                  </div>
-                  <div class="phone-caption">
-                    <strong>@TikTokGO • Los Angeles mission</strong>
-                    <span>Swipe through the route, spot the Bear, tap the Pin, and turn inspiration into bookings.</span>
-                  </div>
+              <div class="video-shell">
+                <div class="video-frame">
+                  <iframe
+                    src="https://player.vimeo.com/video/1219646825?title=0&byline=0&portrait=0&dnt=1&transparent=0"
+                    title="Mission video"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
             </aside>
@@ -1322,6 +1535,96 @@
               <div class="collect-closing">Los Angeles is just the beginning.</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section partner-section" id="ota-partners">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div>
+              <div class="section-kicker">OTA partners</div>
+              <h2 class="section-title">For OTA Partners</h2>
+            </div>
+            <p class="section-subtitle">What you bring. What you get.</p>
+          </div>
+          <div class="partner-exchange">
+            <div class="partner-column">
+              <div class="partner-label"><span>What you get</span><span>Demand × Distribution</span></div>
+              <article class="partner-card reveal delay-1"><h3>$1M+ Marketing Package</h3><p>Co-funded creator content, ads, and on-platform promotion</p></article>
+              <article class="partner-card reveal delay-2"><h3>Creator Content at Scale</h3><p>Matched creators visit your experiences and publish on TikTok Go</p></article>
+              <article class="partner-card reveal delay-3"><h3>Search & Discovery Boost</h3><p>Your experiences surface on TikTok travel destination pages</p></article>
+              <article class="partner-card reveal delay-4"><h3>Priority Placement</h3><p>Featured in city missions, creator leaderboards, and campaign pages</p></article>
+            </div>
+            <div class="partner-separator" aria-hidden="true"><div class="partner-x">×</div></div>
+            <div class="partner-column">
+              <div class="partner-label"><span>What you bring</span><span>Inventory × Access</span></div>
+              <article class="partner-card reveal delay-1"><h3>Bookable Experiences</h3><p>List your inventory on TikTok Go for creator and consumer bookings</p></article>
+              <article class="partner-card reveal delay-2"><h3>Creator Access</h3><p>Provide tickets and venue entry for matched creators</p></article>
+              <article class="partner-card reveal delay-3"><h3>Co-funded Discounts</h3><p>Offer exclusive deals for TikTok Go consumers</p></article>
+              <article class="partner-card reveal delay-4"><h3>Joint Promotion</h3><p>Social posts, PR, and co-marketing amplification</p></article>
+            </div>
+          </div>
+          <div class="partner-tagline reveal delay-5">A partnership built on shared audiences and real bookings.</div>
+        </div>
+      </section>
+
+      <section class="section partner-section" id="dmo-partners">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div>
+              <div class="section-kicker">DMO partners</div>
+              <h2 class="section-title">For DMO Partners</h2>
+            </div>
+            <p class="section-subtitle">What you bring. What you get.</p>
+          </div>
+          <div class="partner-exchange">
+            <div class="partner-column">
+              <div class="partner-label"><span>What you get</span><span>Spotlight × Traffic</span></div>
+              <article class="partner-card reveal delay-1"><h3>City Series Spotlight</h3><p>Your destination featured in TikTok Go's City Series campaign, in-app pages, and H5</p></article>
+              <article class="partner-card reveal delay-2"><h3>Creator Content at Scale</h3><p>75+ matched creators produce content at your city's top attractions</p></article>
+              <article class="partner-card reveal delay-3"><h3>Platform Traffic & Discovery</h3><p>Your city gets a dedicated destination page and search boost on TikTok Go</p></article>
+              <article class="partner-card reveal delay-4"><h3>Co-branded Campaign Visibility</h3><p>Joint exposure across TikTok, Instagram, X, and LinkedIn</p></article>
+            </div>
+            <div class="partner-separator" aria-hidden="true"><div class="partner-x">×</div></div>
+            <div class="partner-column">
+              <div class="partner-label"><span>What you bring</span><span>Access × Amplification</span></div>
+              <article class="partner-card reveal delay-1"><h3>City Resources</h3><p>Help coordinate access to key local attractions and POIs</p></article>
+              <article class="partner-card reveal delay-2"><h3>Attraction Coordination</h3><p>Facilitate creator entry and on-site logistics at featured destinations</p></article>
+              <article class="partner-card reveal delay-3"><h3>Local Promotion</h3><p>Amplify the campaign through DMO's own channels and member networks</p></article>
+              <article class="partner-card reveal delay-4"><h3>Media & PR Support</h3><p>Co-branded social posts, press coverage, and member outreach</p></article>
+            </div>
+          </div>
+          <div class="partner-tagline reveal delay-5">Turn your city into a TikTok creator destination.</div>
+        </div>
+      </section>
+
+      <section class="section partner-section" id="for-creators">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div>
+              <div class="section-kicker">Creators</div>
+              <h2 class="section-title">For Creators</h2>
+            </div>
+            <p class="section-subtitle">What you bring. What you get.</p>
+          </div>
+          <div class="partner-exchange">
+            <div class="partner-column">
+              <div class="partner-label"><span>What you get</span><span>Gear × Missions</span></div>
+              <article class="partner-card reveal delay-1"><h3>Your Travel Kit</h3><p>Official TikTok Go Bear + "Click Here" Pin, your exclusive mission gear</p></article>
+              <article class="partner-card reveal delay-2"><h3>City Mission Access</h3><p>Matched to top attractions, experiences, and merchants. Entry covered.</p></article>
+              <article class="partner-card reveal delay-3"><h3>City Outfit Unlocks</h3><p>Complete a city mission, unlock a limited Bear city outfit. One per city.</p></article>
+              <article class="partner-card reveal delay-4"><h3>Creator Incentives</h3><p>Details to be confirmed</p></article>
+            </div>
+            <div class="partner-separator" aria-hidden="true"><div class="partner-x">×</div></div>
+            <div class="partner-column">
+              <div class="partner-label"><span>What you bring</span><span>Content × Conversion</span></div>
+              <article class="partner-card reveal delay-1"><h3>Accept the mission</h3><p>Pick up your city mission list and visit the assigned locations</p></article>
+              <article class="partner-card reveal delay-2"><h3>Create & post on TikTok Go</h3><p>Show up with your Bear and Pin, link content to TikTok Go booking pages</p></article>
+              <article class="partner-card reveal delay-3"><h3>Drive real bookings</h3><p>Your audience books the same experiences through your content</p></article>
+              <article class="partner-card reveal delay-4"><h3>Unlock your next city</h3><p>Complete and move on to the next City Series destination</p></article>
+            </div>
+          </div>
+          <div class="partner-tagline reveal delay-5">Every trip is a mission. Every post is a booking.</div>
         </div>
       </section>
     </main>
