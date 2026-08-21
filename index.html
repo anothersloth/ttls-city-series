@@ -113,6 +113,11 @@
       line-height: 0.93;
       letter-spacing: -0.055em;
     }
+    .nowrap { white-space: nowrap; }
+    .mission-section .title-wrap { max-width: none; }
+    .mission-section .section-title {
+      font-size: clamp(36px, 5.4vw, 68px);
+    }
     .section-subtitle {
       margin: 0;
       color: var(--muted);
@@ -136,6 +141,7 @@
     .delay-3 { transition-delay: 0.24s; }
     .delay-4 { transition-delay: 0.32s; }
     .delay-5 { transition-delay: 0.4s; }
+    .delay-6 { transition-delay: 0.48s; }
 
     /* === FLOATING NAV === */
     .top-nav {
@@ -455,10 +461,265 @@
       line-height: 1.45;
     }
 
-    /* === WHY NOW === */
+    /* === WHY NOW / PLATFORM SCALE === */
     .why-now .section-inner {
       display: grid;
       gap: 30px;
+    }
+    .why-now .title-wrap { max-width: none; }
+    .scale-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .scale-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+    }
+    .scale-hero-num {
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+    }
+    .scale-hero-num strong {
+      font-size: clamp(84px, 12vw, 148px);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      color: var(--cyan);
+    }
+    .scale-hero-num span {
+      max-width: 180px;
+      padding-bottom: 14px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.25;
+    }
+    .scale-pills {
+      display: grid;
+      gap: 12px;
+    }
+    .scale-pill {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 24px;
+      border-radius: 22px;
+    }
+    .scale-pill strong {
+      font-size: clamp(36px, 4vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .scale-pill span {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .scale-pill.pop {
+      background: #fff;
+      color: #111;
+    }
+    .scale-pill.tiktok {
+      background: var(--cyan);
+      color: #071014;
+    }
+    .scale-chart {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px 22px;
+      border-radius: clamp(24px, 3vw, 36px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+    }
+    .scale-chart-label {
+      display: inline-flex;
+      margin: 0 auto 22px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #fff;
+      color: #111;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .scale-bars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 12px;
+      height: 280px;
+      margin-bottom: 16px;
+    }
+    .scale-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      min-height: 0;
+      gap: 10px;
+    }
+    .scale-plot {
+      flex: 1;
+      width: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .scale-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      width: 100%;
+    }
+    .scale-col b {
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+    .scale-bar {
+      width: min(46px, 70%);
+      min-height: 18px;
+      flex: 1;
+      border-radius: 14px 14px 8px 8px;
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 1s var(--ease);
+    }
+    .scale-chart.in-view .scale-bar { transform: scaleY(1); }
+    .scale-bar-wrap.tt { height: 64%; }
+    .scale-bar-wrap.yt { height: 100%; }
+    .scale-bar-wrap.fb { height: 79%; }
+    .scale-bar-wrap.ig { height: 62%; }
+    .scale-bar-wrap.x { height: 32%; }
+    .scale-bar.tt { background: var(--cyan); transition-delay: 0.08s; }
+    .scale-bar.yt { background: #ff0033; transition-delay: 0.16s; }
+    .scale-bar.fb { background: #1877f2; transition-delay: 0.24s; }
+    .scale-bar.ig { background: #e1306c; transition-delay: 0.32s; }
+    .scale-bar.x { background: #f4f4f5; transition-delay: 0.4s; }
+    .scale-col small {
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .scale-note {
+      color: rgba(255,255,255,0.48);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* === WHY NOW / OPPORTUNITY FUNNEL === */
+    .opportunity-section .title-wrap { max-width: none; }
+    .opportunity-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    .funnel-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 100%;
+      padding: 24px 22px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .funnel-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(254, 44, 85, 0.26);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+    }
+    .funnel-card.close {
+      background: linear-gradient(180deg, rgba(37,244,238,0.1), rgba(255,255,255,0.03));
+      border-color: rgba(37, 244, 238, 0.2);
+    }
+    .funnel-step {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.62);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.04);
+    }
+    .funnel-stat {
+      font-size: clamp(52px, 6vw, 72px);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      color: var(--cyan);
+    }
+    .funnel-phrase {
+      font-size: clamp(26px, 2.4vw, 32px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+    .funnel-phrase-sub {
+      color: var(--pink);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .funnel-card h3 {
+      margin: 4px 0 0;
+      font-size: clamp(20px, 1.8vw, 26px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+    .funnel-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .funnel-note {
+      color: rgba(255,255,255,0.42);
+      font-size: 12px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .funnel-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--pink);
+      opacity: 0.88;
+    }
+    .funnel-arrow svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+    .funnel-tagline {
+      margin-top: 22px;
+      padding: 22px 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(90deg, rgba(254,44,85,0.12), rgba(255,255,255,0.04), rgba(37,244,238,0.08));
+      text-align: center;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.4;
+      letter-spacing: -0.03em;
     }
     .stats-grid {
       display: grid;
@@ -606,25 +867,35 @@
       position: relative;
       min-height: calc(100vh - 120px);
       overflow: hidden;
+      display: flex;
+      align-items: end;
       border-radius: clamp(28px, 4vw, 42px);
       border: 1px solid rgba(255,255,255,0.12);
-      background: url("./images/bear-poster.png") center center / cover no-repeat;
+      background: url("./images/bear-poster.png") center 32% / cover no-repeat;
       box-shadow: var(--shadow-xl);
     }
     .poster-shell::before {
-      content: none;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 36%;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 22%, #000 48%, #000 100%);
     }
     .poster-content {
       position: relative;
       z-index: 1;
-      width: min(820px, calc(100% - 48px));
-      padding: 0 32px 38px;
+      width: 100%;
+      padding: 0 32px 6.5%;
+      text-align: center;
     }
     .poster-content h2 {
-      margin: 0;
-      font-size: clamp(40px, 6vw, 82px);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
+      margin: 0 auto;
+      max-width: 920px;
+      font-size: clamp(36px, 5.4vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
     }
 
     /* === TRAVEL KIT === */
@@ -1083,6 +1354,258 @@
       font-size: clamp(18px, 2vw, 24px);
       letter-spacing: -0.03em;
     }
+    .ota-tiers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+    .ota-tier {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border-radius: clamp(24px, 3vw, 32px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .ota-tier:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,183,102,0.34);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.26);
+    }
+    .ota-tier.deep {
+      border-color: rgba(254,44,85,0.28);
+      background:
+        radial-gradient(circle at 88% 0%, rgba(254,44,85,0.16), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+    }
+    .ota-tier-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .ota-tier-name {
+      margin: 0 0 8px;
+      font-size: clamp(32px, 3.2vw, 48px);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+    }
+    .ota-tier-kicker {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .ota-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.78);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .ota-tier.deep .ota-badge {
+      border-color: rgba(254,44,85,0.34);
+      background: rgba(254,44,85,0.12);
+      color: #fff;
+    }
+    .ota-tier-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .ota-block {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8, 10, 16, 0.35);
+    }
+    .ota-block-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ota-block-head strong {
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+    .ota-block-head span {
+      color: var(--muted-soft);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .ota-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+    .ota-list li {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .ota-list li::before {
+      content: "•";
+      color: rgba(255,255,255,0.42);
+    }
+    .ota-list li.shared::before {
+      content: "✓";
+      color: var(--cyan);
+    }
+    .ota-list li.extra {
+      color: #fff;
+    }
+    .ota-list li.extra::before {
+      content: "✦";
+      color: var(--gold);
+    }
+    .ota-note {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.48);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ota-note {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.48);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* === TIMELINE FOR ACTION === */
+    .action-shell {
+      position: relative;
+      padding: 12px 0 8px;
+    }
+    .action-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,183,102,0.5), rgba(254,44,85,0.45), transparent);
+      transform: translateY(-50%);
+    }
+    .action-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .action-node {
+      position: relative;
+      min-height: 480px;
+      display: grid;
+      grid-template-rows: minmax(190px, 1fr) 72px minmax(190px, 1fr);
+    }
+    .action-node.up .action-card {
+      grid-row: 1;
+      align-self: end;
+      margin-bottom: 6px;
+    }
+    .action-node.down .action-card {
+      grid-row: 3;
+      align-self: start;
+      margin-top: 6px;
+    }
+    .action-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px 18px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-lg);
+    }
+    .action-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--gold));
+    }
+    .action-card h3 {
+      margin: 0 0 12px;
+      font-size: clamp(20px, 1.7vw, 26px);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+    .action-card ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+    .action-card li {
+      position: relative;
+      padding-left: 14px;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .action-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .action-anchor {
+      grid-row: 2;
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .action-date {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(7, 8, 12, 0.92);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .action-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      box-shadow: 0 0 0 6px rgba(254,44,85,0.12), 0 0 18px rgba(254,44,85,0.4);
+    }
 
     /* === FOOTER === */
     .footer-note {
@@ -1119,14 +1642,41 @@
       .stats-grid,
       .journey-grid,
       .partner-exchange,
-      .agenda-grid {
+      .agenda-grid,
+      .scale-layout,
+      .opportunity-flow,
+      .ota-tiers,
+      .action-track {
         grid-template-columns: 1fr;
       }
+      .opportunity-flow { justify-items: stretch; }
+      .funnel-arrow svg { transform: rotate(90deg); }
       .partner-section .title-wrap {
         align-items: flex-start;
         flex-direction: column;
       }
       .partner-section .title-wrap .section-subtitle { text-align: left; }
+      .action-line { display: none; }
+      .action-node,
+      .action-node.up,
+      .action-node.down {
+        min-height: unset;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+      }
+      .action-node.up .action-card,
+      .action-node.down .action-card {
+        grid-row: auto;
+        margin: 0;
+      }
+      .action-anchor {
+        position: relative;
+        grid-row: auto;
+        order: -1;
+        justify-items: start;
+        margin-bottom: 12px;
+      }
       .partner-separator {
         min-height: 56px;
       }
@@ -1158,6 +1708,7 @@
       .collect-copy { order: -1; }
     }
     @media (max-width: 720px) {
+      .mission-section .nowrap { white-space: normal; }
       .top-nav {
         padding: 14px 16px;
         border-radius: 24px;
@@ -1185,7 +1736,7 @@
       .mission-map { padding: 20px; }
       .route-svg { display: none; }
       .video-shell { width: min(100%, 360px); margin: 0 auto; }
-      .poster-content { padding: 0 22px 28px; }
+      .poster-content { padding: 0 22px 8%; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1261,8 +1812,15 @@
                 <a class="agenda-item" href="#why-now">
                   <span class="agenda-num">02</span>
                   <span>
-                    <strong>The Shift</strong>
-                    <p>The data behind the new travel journey — from the feed to the booking.</p>
+                    <strong>Platform scale</strong>
+                    <p>60% of the US uses TikTok monthly — the new top of the travel funnel.</p>
+                  </span>
+                </a>
+                <a class="agenda-item" href="#opportunity">
+                  <span class="agenda-num">03</span>
+                  <span>
+                    <strong>Content to booking</strong>
+                    <p>Inspiration, search, and purchase now happen in one loop.</p>
                   </span>
                 </a>
               </div>
@@ -1273,28 +1831,28 @@
               <p class="agenda-line">A campaign built around creators, missions, and the cities they explore.</p>
               <div class="agenda-list">
                 <a class="agenda-item" href="#bear-hero">
-                  <span class="agenda-num">03</span>
+                  <span class="agenda-num">04</span>
                   <span>
                     <strong>TikTok Go Bear</strong>
                     <p>A physical IP that becomes the creator's travel identity.</p>
                   </span>
                 </a>
                 <a class="agenda-item" href="#travel-kit">
-                  <span class="agenda-num">04</span>
+                  <span class="agenda-num">05</span>
                   <span>
                     <strong>Travel Kit</strong>
                     <p>Bear + Pin + the mission mechanic that makes every trip bookable.</p>
                   </span>
                 </a>
                 <a class="agenda-item" href="#mission-map">
-                  <span class="agenda-num">05</span>
+                  <span class="agenda-num">06</span>
                   <span>
                     <strong>City Mission LA</strong>
                     <p>How one city actually runs — route, spots, and on-the-ground execution.</p>
                   </span>
                 </a>
                 <a class="agenda-item" href="#collect-cities">
-                  <span class="agenda-num">06</span>
+                  <span class="agenda-num">07</span>
                   <span>
                     <strong>City Collection</strong>
                     <p>The series logic: complete a city, unlock the next, grow the wardrobe.</p>
@@ -1308,21 +1866,21 @@
               <p class="agenda-line">The City Series runs on OTA partners, DMOs, and creators — each with a clear exchange.</p>
               <div class="agenda-list">
                 <a class="agenda-item" href="#ota-partners">
-                  <span class="agenda-num">07</span>
+                  <span class="agenda-num">08</span>
                   <span>
                     <strong>OTA Partners</strong>
-                    <p>Inventory and access in. Demand and distribution out.</p>
+                    <p>Standard or Deep: two partnership tiers, one City Series.</p>
                   </span>
                 </a>
                 <a class="agenda-item" href="#dmo-partners">
-                  <span class="agenda-num">08</span>
+                  <span class="agenda-num">09</span>
                   <span>
                     <strong>DMO Partners</strong>
                     <p>City resources in. Spotlight, traffic, and creator content out.</p>
                   </span>
                 </a>
                 <a class="agenda-item" href="#for-creators">
-                  <span class="agenda-num">09</span>
+                  <span class="agenda-num">10</span>
                   <span>
                     <strong>Creators</strong>
                     <p>Content and conversion in. Gear, missions, and the next city out.</p>
@@ -1338,62 +1896,103 @@
         <div class="section-inner">
           <div class="title-wrap reveal">
             <div class="section-kicker">Why now</div>
-            <h2 class="section-title">Travel Runs on Content</h2>
-            <p class="section-subtitle">With 200M monthly active US users, TikTok drives the full travel decision journey — from discovery to booking.</p>
+            <h2 class="section-title">60% of the US uses TikTok at least once a month.</h2>
           </div>
-          <div class="stats-grid">
-            <article class="stat-card reveal delay-1">
-              <strong class="stat-value">200M MAU</strong>
-              <div class="stat-label">Monthly active US users, creating a constant top-of-funnel travel discovery engine.</div>
-            </article>
-            <article class="stat-card reveal delay-2">
-              <strong class="stat-value">100+ min</strong>
-              <div class="stat-label">Average daily time spent on TikTok, keeping travel intent in motion far beyond a single search.</div>
-            </article>
-            <article class="stat-card reveal delay-3">
-              <strong class="stat-value">48% aged 25–45</strong>
-              <div class="stat-label">The booking demographic OTA partners care about most, already deep in the feed.</div>
-            </article>
-          </div>
-
-          <div class="journey-board reveal delay-1">
-            <div class="journey-grid">
-              <article class="journey-card reveal delay-1">
-                <div class="journey-stage">Inspiration</div>
-                <h3 class="journey-percent">54%</h3>
-                <p class="journey-desc">of travelers get trip ideas from TikTok, where itineraries feel native, human, and instantly shareable.</p>
-                <div class="journey-rank">#1 — 1.4x vs. web search</div>
-              </article>
-              <article class="journey-card reveal delay-2">
-                <div class="journey-stage">Research</div>
-                <h3 class="journey-percent">43%</h3>
-                <p class="journey-desc">research destinations on TikTok, moving from dream-state content to planning signals without leaving the platform.</p>
-                <div class="journey-rank">#1 among all platforms</div>
-              </article>
-              <article class="journey-card reveal delay-3">
-                <div class="journey-stage">Booking</div>
-                <h3 class="journey-percent">30%</h3>
-                <p class="journey-desc">make booking decisions influenced by TikTok, proving creator storytelling already shifts commercial intent.</p>
-                <div class="journey-rank">#2 — right behind web search</div>
-              </article>
-              <article class="journey-card reveal delay-4">
-                <div class="journey-stage">Sharing</div>
-                <h3 class="journey-percent">41%</h3>
-                <p class="journey-desc">share experiences on TikTok, feeding the next wave of inspiration and keeping the journey in motion.</p>
-                <div class="journey-rank">#1 among all platforms</div>
-              </article>
+          <div class="scale-layout">
+            <div class="scale-copy reveal delay-1">
+              <div class="scale-hero-num">
+                <strong>60%</strong>
+                <span>of the US population uses TikTok monthly</span>
+              </div>
+              <div class="scale-pills">
+                <div class="scale-pill pop"><strong>347M</strong><span>Total USA population</span></div>
+                <div class="scale-pill tiktok"><strong>207M</strong><span>Monthly TikTok users</span></div>
+              </div>
             </div>
-            <div class="journey-footer reveal delay-5">
-              <strong>TikTok already owns inspiration and research. Booking is the next frontier.</strong>
-              <small>Source: TikTok Marketing Science US Travel Horizon Research via AYTM, October 2025</small>
+            <div class="scale-chart reveal delay-2">
+              <div class="scale-chart-label">Monthly Active Users Indexed²</div>
+              <div class="scale-bars" aria-hidden="true">
+                <div class="scale-col">
+                  <div class="scale-plot">
+                    <div class="scale-bar-wrap tt"><b>100%</b><div class="scale-bar tt"></div></div>
+                  </div>
+                  <small>TikTok</small>
+                </div>
+                <div class="scale-col">
+                  <div class="scale-plot">
+                    <div class="scale-bar-wrap yt"><b>157%</b><div class="scale-bar yt"></div></div>
+                  </div>
+                  <small>YouTube</small>
+                </div>
+                <div class="scale-col">
+                  <div class="scale-plot">
+                    <div class="scale-bar-wrap fb"><b>124%</b><div class="scale-bar fb"></div></div>
+                  </div>
+                  <small>Facebook</small>
+                </div>
+                <div class="scale-col">
+                  <div class="scale-plot">
+                    <div class="scale-bar-wrap ig"><b>97%</b><div class="scale-bar ig"></div></div>
+                  </div>
+                  <small>Instagram</small>
+                </div>
+                <div class="scale-col">
+                  <div class="scale-plot">
+                    <div class="scale-bar-wrap x"><b>51%</b><div class="scale-bar x"></div></div>
+                  </div>
+                  <small>X</small>
+                </div>
+              </div>
+              <p class="scale-note">Source: 1. TikTok internal data, US, Apr 2025. 2. Triangulated from data.ai, DataReportal, ad manager and internal analysis, US, Apr 2025. Note: TikTok's use of this data does not equate to an endorsement.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <section class="section opportunity-section" id="opportunity">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div class="section-kicker">Why now</div>
+            <h2 class="section-title">Content is the starting point for travel.</h2>
+            <p class="section-subtitle">“Get inspired, then search” is the new user behavior.</p>
+          </div>
+          <div class="opportunity-flow">
+            <article class="funnel-card reveal delay-1">
+              <div class="funnel-step">01 · Inspiration</div>
+              <div class="funnel-stat">40B+</div>
+              <h3>Content Inspiration</h3>
+              <p>Total views of #travel on TikTok in 2025. Content is shaping travel interests at scale.</p>
+              <div class="funnel-note">TikTok Internal Data, Global, 2025</div>
+            </article>
+            <div class="funnel-arrow reveal delay-2" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <article class="funnel-card reveal delay-3">
+              <div class="funnel-step">02 · Search</div>
+              <div class="funnel-stat">2×</div>
+              <h3>Search &amp; Decision</h3>
+              <p>Users search on social and video platforms twice as often as AI search engines.</p>
+              <div class="funnel-note">TikTok Marketing Science Global Future of Search Study 2025, conducted by WARC</div>
+            </article>
+            <div class="funnel-arrow reveal delay-4" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <article class="funnel-card close reveal delay-5">
+              <div class="funnel-step">03 · Purchase</div>
+              <div class="funnel-phrase">Content drives the booking.</div>
+              <div class="funnel-phrase-sub">TikTok Go closes the loop.</div>
+              <p>From inspiration to booking — all in one platform.</p>
+            </article>
+          </div>
+          <div class="funnel-tagline reveal delay-6">For travel brands, this is not just a traffic shift. It is a shift in how travel demand is created and converted.</div>
+        </div>
+      </section>
+
       <section class="section poster-section" id="bear-hero">
         <div class="section-inner poster-shell">
-          <div class="poster-content" aria-hidden="true"></div>
+          <div class="poster-content">
+            <h2 class="reveal">Where Will Bear Go Next?</h2>
+          </div>
         </div>
       </section>
 
@@ -1401,8 +2000,8 @@
         <div class="section-inner">
           <div class="title-wrap reveal">
             <div class="section-kicker">Travel kit concept</div>
-            <h2 class="section-title">A Bear. A Pin. A Mission.</h2>
-            <p class="section-subtitle">Each creator receives a TikTok Go Travel Kit.</p>
+            <h2 class="section-title">A Bear. A Pin. Your Next Stop.</h2>
+            <p class="section-subtitle">Every creator gets a Bear. Take it with you. Dress it your way. Make it yours.</p>
           </div>
 
           <div class="kit-shell">
@@ -1437,8 +2036,8 @@
         <div class="section-inner">
           <div class="title-wrap reveal">
             <div class="section-kicker">Creator route</div>
-            <h2 class="section-title">Creators on a Mission</h2>
-            <p class="section-subtitle">First stop: Los Angeles.</p>
+            <h2 class="section-title">Creators on a Mission.<br /><span class="nowrap">First Stop: Los Angeles.</span></h2>
+            <p class="section-subtitle">Show up with the Bear. Complete your mission. Pass it to the next creator. See where it goes.</p>
           </div>
           <div class="mission-grid">
             <div class="mission-map reveal delay-1">
@@ -1545,26 +2144,79 @@
               <div class="section-kicker">OTA partners</div>
               <h2 class="section-title">For OTA Partners</h2>
             </div>
-            <p class="section-subtitle">What you bring. What you get.</p>
+            <p class="section-subtitle">Two tiers. Choose the partnership depth that matches your ambition.</p>
           </div>
-          <div class="partner-exchange">
-            <div class="partner-column">
-              <div class="partner-label"><span>What you get</span><span>Demand × Distribution</span></div>
-              <article class="partner-card reveal delay-1"><h3>$1M+ Marketing Package</h3><p>Co-funded creator content, ads, and on-platform promotion</p></article>
-              <article class="partner-card reveal delay-2"><h3>Creator Content at Scale</h3><p>Matched creators visit your experiences and publish on TikTok Go</p></article>
-              <article class="partner-card reveal delay-3"><h3>Search & Discovery Boost</h3><p>Your experiences surface on TikTok travel destination pages</p></article>
-              <article class="partner-card reveal delay-4"><h3>Priority Placement</h3><p>Featured in city missions, creator leaderboards, and campaign pages</p></article>
-            </div>
-            <div class="partner-separator" aria-hidden="true"><div class="partner-x">×</div></div>
-            <div class="partner-column">
-              <div class="partner-label"><span>What you bring</span><span>Inventory × Access</span></div>
-              <article class="partner-card reveal delay-1"><h3>Bookable Experiences</h3><p>List your inventory on TikTok Go for creator and consumer bookings</p></article>
-              <article class="partner-card reveal delay-2"><h3>Creator Access</h3><p>Provide tickets and venue entry for matched creators</p></article>
-              <article class="partner-card reveal delay-3"><h3>Co-funded Discounts</h3><p>Offer exclusive deals for TikTok Go consumers</p></article>
-              <article class="partner-card reveal delay-4"><h3>Joint Promotion</h3><p>Social posts, PR, and co-marketing amplification</p></article>
-            </div>
+          <div class="ota-tiers">
+            <article class="ota-tier reveal delay-1" aria-label="Standard partnership tier">
+              <div class="ota-tier-head">
+                <div>
+                  <div class="ota-tier-kicker">Core campaign package</div>
+                  <h3 class="ota-tier-name">Standard</h3>
+                </div>
+              </div>
+              <p class="ota-tier-summary">A high-impact launch package that drives discoverability, booking intent, and creator-led city storytelling.</p>
+              <div class="ota-block">
+                <div class="ota-block-head"><strong>What you get</strong><span>TikTok gives</span></div>
+                <ul class="ota-list">
+                  <li>TikTok Go Official Handle Post</li>
+                  <li>Campaign Exclusive In-App Exposure</li>
+                  <li>Destination Page Traffic Boost</li>
+                  <li>Dedicated City Series H5 Page</li>
+                  <li>Creator Matching — creators visit your POIs in person</li>
+                  <li>Ads Boost + Search Query Boost</li>
+                </ul>
+              </div>
+              <div class="ota-block">
+                <div class="ota-block-head"><strong>What you bring</strong><span>Partner provides</span></div>
+                <ul class="ota-list">
+                  <li>Recommended POI list</li>
+                  <li>120 complimentary tickets per attraction</li>
+                  <li>Exclusive consumer discount (standard 15% off)</li>
+                  <li>Facilitate creator access on-site</li>
+                </ul>
+              </div>
+            </article>
+            <article class="ota-tier deep reveal delay-2" aria-label="Deep partnership tier">
+              <div class="ota-tier-head">
+                <div>
+                  <div class="ota-tier-kicker">Co-created priority activation</div>
+                  <h3 class="ota-tier-name">Deep</h3>
+                </div>
+                <div class="ota-badge">Recommended</div>
+              </div>
+              <p class="ota-tier-summary">Everything in Standard, plus deeper co-creation, stronger creator allocation, and on-site mechanics that make the campaign more ownable.</p>
+              <div class="ota-block">
+                <div class="ota-block-head"><strong>What you get</strong><span>TikTok gives</span></div>
+                <ul class="ota-list">
+                  <li class="shared">TikTok Go Official Handle Post</li>
+                  <li class="shared">Campaign Exclusive In-App Exposure</li>
+                  <li class="shared">Destination Page Traffic Boost</li>
+                  <li class="shared">Dedicated City Series H5 Page</li>
+                  <li class="shared">Creator Matching — creators visit your POIs in person</li>
+                  <li class="shared">Ads Boost + Search Query Boost</li>
+                  <li class="extra">2 dedicated creators (100K+ followers) per Priority POI</li>
+                  <li class="extra">Co-design the “Find the Bear” mission mechanic</li>
+                  <li class="extra">Swag Bear × POI Activation — Bear integrated into the on-site experience</li>
+                </ul>
+              </div>
+              <div class="ota-block">
+                <div class="ota-block-head"><strong>What you bring</strong><span>Partner provides</span></div>
+                <ul class="ota-list">
+                  <li class="shared">Recommended POI list</li>
+                  <li class="shared">120 complimentary tickets per attraction</li>
+                  <li class="shared">Exclusive consumer discount (standard 15% off)</li>
+                  <li class="shared">Facilitate creator access on-site</li>
+                  <li class="extra">Help identify Priority POIs and bring TikTok GO into key conversations early</li>
+                  <li class="extra">POI venue able to store and distribute TikTok Go Bears (100 per POI)</li>
+                  <li class="extra">Allow TTGO staff on-site to distribute Bears</li>
+                  <li class="extra">Place “Find the Bear Mission” poster inside POI</li>
+                  <li class="extra">POI official TikTok account to post campaign content</li>
+                </ul>
+              </div>
+            </article>
           </div>
-          <div class="partner-tagline reveal delay-5">A partnership built on shared audiences and real bookings.</div>
+          <div class="ota-note reveal delay-3">✓ is included in both tiers. ✦ is Deep-only.</div>
+          <div class="partner-tagline reveal delay-4">A partnership built on shared audiences and real bookings.</div>
         </div>
       </section>
 
@@ -1581,9 +2233,9 @@
             <div class="partner-column">
               <div class="partner-label"><span>What you get</span><span>Spotlight × Traffic</span></div>
               <article class="partner-card reveal delay-1"><h3>City Series Spotlight</h3><p>Your destination featured in TikTok Go's City Series campaign, in-app pages, and H5</p></article>
-              <article class="partner-card reveal delay-2"><h3>Creator Content at Scale</h3><p>75+ matched creators produce content at your city's top attractions</p></article>
+              <article class="partner-card reveal delay-2"><h3>Creator Content at Scale</h3><p>Matched creators produce content at your city's top attractions</p></article>
               <article class="partner-card reveal delay-3"><h3>Platform Traffic & Discovery</h3><p>Your city gets a dedicated destination page and search boost on TikTok Go</p></article>
-              <article class="partner-card reveal delay-4"><h3>Co-branded Campaign Visibility</h3><p>Joint exposure across TikTok, Instagram, X, and LinkedIn</p></article>
+              <article class="partner-card reveal delay-4"><h3>Ads & Promotion Boost</h3><p>Co-funded ads and on-platform promotion to amplify your city's visibility</p></article>
             </div>
             <div class="partner-separator" aria-hidden="true"><div class="partner-x">×</div></div>
             <div class="partner-column">
@@ -1625,6 +2277,73 @@
             </div>
           </div>
           <div class="partner-tagline reveal delay-5">Every trip is a mission. Every post is a booking.</div>
+        </div>
+      </section>
+
+      <section class="section action-section" id="timeline">
+        <div class="section-inner">
+          <div class="title-wrap reveal">
+            <div class="section-kicker">Next steps</div>
+            <h2 class="section-title">Timeline for Action</h2>
+          </div>
+          <div class="action-shell">
+            <div class="action-line" aria-hidden="true"></div>
+            <div class="action-track">
+              <article class="action-node up reveal delay-1">
+                <div class="action-card">
+                  <h3>Kickoff &amp; Outreach</h3>
+                  <ul>
+                    <li>Initiate kickoff meetings with OTA and DMO partners</li>
+                    <li>Gauge interest in City Series participation</li>
+                  </ul>
+                </div>
+                <div class="action-anchor">
+                  <div class="action-date">Now</div>
+                  <div class="action-dot" aria-hidden="true"></div>
+                </div>
+              </article>
+              <article class="action-node down reveal delay-2">
+                <div class="action-card">
+                  <h3>Initial Alignment</h3>
+                  <ul>
+                    <li>Confirm partner interest and collect Priority POI lists</li>
+                    <li>Confirm willingness to provide complimentary tickets</li>
+                    <li>Document any blockers and escalate as needed</li>
+                  </ul>
+                </div>
+                <div class="action-anchor">
+                  <div class="action-date">Aug 25</div>
+                  <div class="action-dot" aria-hidden="true"></div>
+                </div>
+              </article>
+              <article class="action-node up reveal delay-3">
+                <div class="action-card">
+                  <h3>Standard Partnership Confirmed</h3>
+                  <ul>
+                    <li>Ticket-based POI collaboration locked in</li>
+                    <li>Standard partnership terms finalized</li>
+                  </ul>
+                </div>
+                <div class="action-anchor">
+                  <div class="action-date">Aug 31</div>
+                  <div class="action-dot" aria-hidden="true"></div>
+                </div>
+              </article>
+              <article class="action-node down reveal delay-4">
+                <div class="action-card">
+                  <h3>Deep POI Checkpoint</h3>
+                  <ul>
+                    <li>First review of Deep Partnership pipeline</li>
+                    <li>Identify POIs for Swag Bear × Activation</li>
+                  </ul>
+                </div>
+                <div class="action-anchor">
+                  <div class="action-date">Sep 4</div>
+                  <div class="action-dot" aria-hidden="true"></div>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
     </main>
